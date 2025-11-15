@@ -205,16 +205,7 @@ Inline output styling inspired by [tiny-inline-diagnostic.nvim](https://github.c
 
 Run all tests:
 ```bash
-make test        # Run all tests (Lua + JavaScript)
-make test-lua    # Run Lua tests only
-make test-js     # Run JavaScript tests only
-```
-
-Individual test files:
-```bash
-./tests/run_lua_tests.sh                                    # Run Lua tests
-./run_tests.sh                                              # Run JavaScript tests
-nvim --headless -c "luafile tests/lua/parser_spec.lua" -c "qa!"  # Run single Lua test
+make test
 ```
 
 ## License
