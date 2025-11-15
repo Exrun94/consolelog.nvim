@@ -68,6 +68,7 @@ ConsoleLog automatically detects your project type and enables console capture:
 
 | Key | Command | Description |
 |-----|---------|-------------|
+| `<leader>lt` | `:ConsoleLogToggle` | Toggle ConsoleLog on/off |
 | `<leader>lr` | `:ConsoleLogRun` | Run current file with ConsoleLog |
 | `<leader>lx` | `:ConsoleLogClear` | Clear all console outputs |
 | `<leader>ls` | `:ConsoleLogStatus` | Show status and diagnostics |
