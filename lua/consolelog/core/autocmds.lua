@@ -62,7 +62,7 @@ function M.setup()
 		end,
 	})
 
-	-- Mark buffer as ready when it's written
+	-- Mark buffer as ready when it's written and clear outputs
 	vim.api.nvim_create_autocmd("BufWritePost", {
 		group = group,
 		callback = function()
@@ -72,7 +72,17 @@ function M.setup()
 				return
 			end
 
+			local consolelog = require("consolelog")
 			local line_matching = require("consolelog.processing.line_matching")
+
+			-- Clear outputs for this buffer on save
+			if consolelog.outputs[bufnr] then
+				local debug_logger = require("consolelog.core.debug_logger")
+				debug_logger.log("BUFWRITEPOST", string.format("Clearing outputs for buffer %d on save", bufnr))
+				consolelog.outputs[bufnr] = {}
+				require("consolelog.display.display").clear_buffer(bufnr)
+			end
+
 			if line_matching.set_buffer_ready then
 				line_matching.set_buffer_ready(bufnr, true)
 			end
