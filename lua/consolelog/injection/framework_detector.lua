@@ -236,19 +236,5 @@ function M.detect_by_config_files(project_root)
 	return M.FRAMEWORKS.UNKNOWN
 end
 
-function M.get_dev_command(framework)
-	local commands = {
-		[M.FRAMEWORKS.NEXTJS] = { "npm", "run", "dev" },
-		[M.FRAMEWORKS.REACT] = { "npm", "start" },
-		[M.FRAMEWORKS.VUE] = { "npm", "run", "serve" },
-		[M.FRAMEWORKS.VITE] = { "npm", "run", "dev" },
-		[M.FRAMEWORKS.ANGULAR] = { "ng", "serve" },
-		[M.FRAMEWORKS.SVELTE] = { "npm", "run", "dev" },
-		[M.FRAMEWORKS.UNKNOWN] = nil
-	}
-
-	return commands[framework]
-end
-
 return M
 
